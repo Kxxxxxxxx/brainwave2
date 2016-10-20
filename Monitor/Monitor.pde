@@ -71,5 +71,3 @@ void oscEvent(OscMessage msg){
     pointer = (pointer + 1) % BUFFER_SIZE;
   }
 }
-
-void 

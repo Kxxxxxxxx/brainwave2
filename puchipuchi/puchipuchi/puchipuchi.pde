@@ -1,4 +1,5 @@
 int count = 0;
+int a = 0;
 int j = 3;
 int k = 3;
 int n = 3;
@@ -10,12 +11,15 @@ PImage img2;
 
 void setup(){
   size(400,400);
+  frameRate(1);
   img1 = loadImage("husen.jpg");
   img2 = loadImage("haretu.png");
 }
 
 void draw(){
   background(255);
+  int h =frameCount;
+  rect(0,370,10*(30-h),20);
   for(int q = 0; q < r; q++){
     for(int s = 0; s < t; s++){
       image(img2,120*q,120*s,120,120);
@@ -30,7 +34,15 @@ void draw(){
         }
       }
     }
-  } 
+  }
+  if(h >= 30){
+    println("Time Up!! Your score is " + a + ".");
+    this.stop();
+  }
+  if(a == 9){
+    println("Perfect!!Congratulations!!");
+    this.stop();
+  }
 }
 
 void keyPressed(){
@@ -38,6 +50,7 @@ void keyPressed(){
     count++;
   }
   if(count >4){
+    a++;
     if(n == 3){
       j--;
       n--;

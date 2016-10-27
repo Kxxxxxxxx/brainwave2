@@ -1,5 +1,5 @@
 int count = 0;
-int a = 0;
+int result = 0;
 int j = 3;
 int k = 3;
 int n = 3;
@@ -36,10 +36,10 @@ void draw(){
     }
   }
   if(h >= 30){
-    println("Time Up!! Your score is " + a + ".");
+    println("Time Up!! Your score is " + result + ".");
     this.stop();
   }
-  if(a == 9){
+  if(result == 9){
     println("Perfect!!Congratulations!!");
     this.stop();
   }
@@ -50,7 +50,7 @@ void keyPressed(){
     count++;
   }
   if(count >4){
-    a++;
+    result++;
     if(n == 3){
       j--;
       n--;

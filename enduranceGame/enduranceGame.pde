@@ -22,30 +22,16 @@ void setup() {
  
 }
 //PVector pt;
-PImage img_smile;
-PImage img_cry;
-PImage img_endure;
-PImage img_dead;
-PImage face;
-PImage sumo;
-PImage bomb;
-
+PImage img_smile, img_cry, img_endure, img_dead, face, sumo, bomb;
 Boolean isOut = false;
+PVector pos_rect, pos_sumo;
 
-float heightMinus;
 final float imageHeight = 250;
-
-PVector pos_rect;
-PVector pos_sumo;
 final float speed = 1;
 final float posx_sumo = width / 2;
 final float height_rect = imageHeight / 2.5;
 
-
-float counter;
-float level;
-float power;
-
+float heightMinus, counter, level, power;
 
 //60Hz /s
 void draw() {
@@ -61,10 +47,12 @@ void draw() {
         counter = 1;
       }
       
-      println(power);
+      // modify the position of objects
       pos_rect.y += speed * level - power;
       pos_sumo.y = pos_rect.y - imageHeight / 8 * 7;
       
+      
+      // height between the bottom of the rect and the bottom of the screen
       float heightLeft = height - pos_rect.y - height_rect;
       
 
@@ -97,7 +85,6 @@ void draw() {
     image(face, width / 2 - imageHeight / 2 , height / 2 - imageHeight / 2, imageHeight, imageHeight);
   }
 }
-
 
 void keyPressed() {
   if (keyCode == UP) {

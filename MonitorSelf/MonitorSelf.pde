@@ -54,7 +54,7 @@ void draw(){
   textSize(LABEL_SIZE);
   for(int ch = 0; ch < N_CHANNELS; ch++){
     text(buffer[ch], offsetX[ch], offsetY[ch]);
-    text(buffer[ch], offsetX[ch], offsetY[ch]+50);
+    text(max[ch], offsetX[ch], offsetY[ch]+50);
   }
 }
 

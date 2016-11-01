@@ -5,7 +5,7 @@ class Endurance {
 
   final float imageHeight = 250;
   final float speed = 1;
-  final float posx_sumo = width / 2;
+  final float posx_sumo = width / 2 - imageHeight / 1.8;
   final float height_rect = imageHeight / 2.5;
 
   float heightMinus, counter, level, power;
@@ -77,13 +77,5 @@ class Endurance {
     }   
   
   }
-
-  void keyPressed() {
-  if (keyCode == UP) {
-       power = 2;
-    } else if (keyCode == DOWN) {
-       power = 0;
-    }
-}
   
 }

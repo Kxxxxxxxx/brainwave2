@@ -1,7 +1,12 @@
 class Endurance {
   PImage img_smile, img_cry, img_endure, img_dead, face, sumo, bomb;
   Boolean isOut = false;
+  Boolean startCount = true;
+  Boolean isEnd;
   PVector pos_rect, pos_sumo;
+  
+  
+  Wait wait;
 
   final float imageHeight = 250;
   final float speed = 1;
@@ -23,6 +28,8 @@ class Endurance {
     power = 0;
     counter = 1;
     level = _level;
+    wait = new Wait();
+    isEnd = false;
   }
   
   
@@ -72,10 +79,17 @@ class Endurance {
       }
       
     } else {
+      if(startCount){
+        startCount = false;
+        wait = new Wait(); 
+      }
       image(bomb, 0, 0, width, height);
       image(face, width / 2 - imageHeight / 2 , height / 2 - imageHeight / 2, imageHeight, imageHeight);
+      isEnd = wait.isEnd();
     }   
   
   }
+  
+  
   
 }

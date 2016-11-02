@@ -65,7 +65,12 @@ void keyPressed() {
      }
      
      case 2:
-     
+       b1.input += 1;
+       if(b1.input == b1.burstInput) {
+         b1.numberBurst += 1;
+         b1.input = 0;
+       }
+  
      case 3:
    }
 }

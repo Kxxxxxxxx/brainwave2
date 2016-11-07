@@ -8,7 +8,7 @@ class Balloon {
   float s;
   int state,input, numberBurst; 
   PImage balloon, burst, img, glad;
-  Boolean startCount;
+  Boolean startCount, startMoveToEnd, isEnd;
   Wait wait;
 
   Balloon() {
@@ -20,6 +20,8 @@ class Balloon {
     input = 0;
     state = 0;
     startCount = true;
+    startMoveToEnd = true;
+    isEnd = false;
   }
   
   void draw() {
@@ -30,6 +32,7 @@ class Balloon {
               
               break;
       case 1: displayEnd();
+              moveToTitle();          
     }
   }
   
@@ -59,13 +62,23 @@ class Balloon {
     if(numberBurst == 9){
        if(startCount){
            startCount = false;
-           wait = new Wait(); 
+           wait = new Wait(4); 
        }
        if(wait.isEnd()){
           state = 1;
+          startMoveToEnd = true;
        }
      }
   }
   
+  void moveToTitle() {
+    if(startMoveToEnd) {
+      startMoveToEnd = false;
+      wait = new Wait(4);
+    }
+    if(wait.isEnd()){
+      isEnd = true;
+    }
+  }
   
 }

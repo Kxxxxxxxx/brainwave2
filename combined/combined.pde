@@ -21,6 +21,7 @@ void draw() {
     state = 0;
     isEnd = false;
     e1 = new Endurance(4);
+    b1 = new Balloon();
   }
   
   switch(state){
@@ -31,6 +32,7 @@ void draw() {
             break;
     
     case 2: b1.draw();
+            isEnd = b1.isEnd;
             break;
     
     case 3: break;

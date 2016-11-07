@@ -2,10 +2,9 @@ class Wait {
 
   float countStart, waitTime;
   
-  
-  Wait() {
-    countStart = millis();
-    waitTime = 4000;
+  Wait(int sec) {
+    countStart= millis();
+    waitTime = sec * 1000;
   }
   
   Boolean isEnd() {

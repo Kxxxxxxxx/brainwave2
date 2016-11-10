@@ -13,6 +13,4 @@ class Wait {
     }
     return false;
   }
-
-
 }

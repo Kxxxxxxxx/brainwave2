@@ -159,7 +159,9 @@ void game() {
     }
 
   }else{
+    if(timeLimit!=0){
     gameovercount=1;
+    }
   }
 }
 

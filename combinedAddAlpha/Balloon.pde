@@ -7,7 +7,7 @@ class Balloon {
   final int burstInput = 5;
   final int sumBurst = 10000;
   float s, alphaSum;
-  int count,state,input, numberBurst; 
+  int count,state,input, numberBurst;
   PImage balloon, burst, img, glad,sad;
   Boolean startCount, startMoveToEnd, isEnd;
   Wait wait;
@@ -33,7 +33,9 @@ class Balloon {
     noFill();
     frameRate(1);
     count++;
+    String time = String.valueOf(30-count);
     rect(0,460,12*(30-count),30);
+    text(time,370,460,30,30);
     switch(state){
       case 0: drawObject();
               changeState();

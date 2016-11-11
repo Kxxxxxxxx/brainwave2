@@ -7,8 +7,8 @@ class Balloon {
   final int burstInput = 5;
   final int sumBurst = 10000;
   float s, alphaSum;
-  int state,input, numberBurst; 
-  PImage balloon, burst, img, glad;
+  int count,state,input, numberBurst; 
+  PImage balloon, burst, img, glad,sad;
   Boolean startCount, startMoveToEnd, isEnd;
   Wait wait;
 
@@ -16,6 +16,7 @@ class Balloon {
     balloon = loadImage("balloon.jpg");
     burst = loadImage("burst.png");
     glad = loadImage("glad.jpg");
+    sad = loadImage("sad.jpg");
     s = imageSize;
     numberBurst = 0;
     input = 0;
@@ -29,13 +30,21 @@ class Balloon {
   
   void draw() {
     background(255);
+    noFill();
+    frameRate(1);
+    count++;
+    rect(0,460,12*(30-count),30);
     switch(state){
       case 0: drawObject();
               changeState();
               
               break;
-      case 1: displayEnd();
-              moveToTitle();          
+      case 1: displayhappyEnd();
+              moveToTitle();
+              
+              break;
+      case 2: displaybadEnd();
+              moveToTitle();
     }
     
    if (alphaSum > sumBurst) {
@@ -67,18 +76,32 @@ class Balloon {
       }
   }
   
-  void displayEnd(){
+  void displayhappyEnd(){
     image(glad,0,0,width,height);
   }
   
+  void displaybadEnd(){
+    image(sad,0,0,width,height);
+  }
+  
   void changeState() {
-    if(numberBurst == 9){
+    if(numberBurst >= 9){
        if(startCount){
            startCount = false;
-           wait = new Wait(4); 
+           wait = new Wait(2); 
        }
        if(wait.isEnd()){
           state = 1;
+          startMoveToEnd = true;
+       }
+     }
+     if(count >= 29){
+       if(startCount){
+           startCount = false;
+           wait = new Wait(0); 
+       }
+       if(wait.isEnd()){
+          state = 2;
           startMoveToEnd = true;
        }
      }

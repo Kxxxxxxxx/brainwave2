@@ -4,6 +4,7 @@ class Endurance {
   Boolean startCount = true;
   Boolean isEnd;
   PVector pos_rect, pos_sumo;
+  int count;
   Wait wait;
 
   final float imageHeight = 250;      // image size
@@ -31,6 +32,10 @@ class Endurance {
   
   void draw() {
     background(200);
+    frameRate(30);
+    count++;
+    String time2 = String.valueOf(30-count/30);
+    text(time2,370,460,50,50);
     if(!isOut){
       
       modifyLevel();
@@ -43,10 +48,15 @@ class Endurance {
       drawObstacles();
       drawFace();
       endDecision();
+      
+         if(count >= 900){
+           pos_rect = new PVector(0,-300);
+           startMoveTohappyTitle();
+         }
         
     // Game Over
     } else {
-      startMoveToTitle();
+      startMoveTobadTitle();
     }   
   }
   
@@ -104,7 +114,17 @@ class Endurance {
       }
   }
   
-  void startMoveToTitle() {
+  void startMoveTohappyTitle(){
+    if(startCount){
+      startCount = false;
+      wait = new Wait(4);
+     }
+     image(bomb, 0, 0, width, height);
+     image(img_smile, width / 2 - imageHeight / 2 , height / 2 - imageHeight / 2 , imageHeight, imageHeight);
+     isEnd = wait.isEnd();
+  }
+     
+  void startMoveTobadTitle() {
     if(startCount){
         startCount = false;
         wait = new Wait(4); 

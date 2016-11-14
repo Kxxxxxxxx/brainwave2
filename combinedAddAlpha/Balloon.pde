@@ -31,11 +31,11 @@ class Balloon {
   void draw() {
     background(255);
     noFill();
-    frameRate(1);
+    frameRate(30);
     count++;
-    String time = String.valueOf(30-count);
-    rect(0,460,12*(30-count),30);
-    text(time,370,460,30,30);
+    String time1 = String.valueOf(30-count/30);
+    rect(0,460,12*(30-count/30),30);
+    text(time1,370,460,30,30);
     switch(state){
       case 0: drawObject();
               changeState();
@@ -97,7 +97,7 @@ class Balloon {
           startMoveToEnd = true;
        }
      }
-     if(count >= 29){
+     if(count >= 900){
        if(startCount){
            startCount = false;
            wait = new Wait(0); 

@@ -7,9 +7,11 @@ class Balloon {
   final int burstInput = 5;
   final int sumBurst = 10000;
   float s, alphaSum;
-  int count,state,input, numberBurst;
-  PImage balloon, burst, img, glad,sad;
+  int count, state,input, numberBurst, iBeforeScore;
+  PImage balloon, burst, img, glad, sad;
   Boolean startCount, startMoveToEnd, isEnd;
+  String Highscore[];
+  PrintWriter POutput;
   Wait wait;
 
   Balloon() {
@@ -18,6 +20,8 @@ class Balloon {
     glad = loadImage("glad.jpg");
     sad = loadImage("sad.jpg");
     s = imageSize;
+    Highscore = loadStrings("balloonhighscore.txt");
+    iBeforeScore = loadScore();
     numberBurst = 0;
     input = 0;
     state = 0;
@@ -79,11 +83,49 @@ class Balloon {
   }
   
   void displayhappyEnd(){
+    saveScore(numberBalloon);
     image(glad,0,0,width,height);
+    dispHighScore();
   }
   
   void displaybadEnd(){
+    if(numberBurst > iBeforeScore){
+      saveScore(numberBurst);
+    }
     image(sad,0,0,width,height);
+    dispHighScore();
+  }
+  
+  void saveScore(int iScoreBase){
+    POutput = createWriter("balloonhighscore.txt");
+    POutput.println(iScoreBase);
+    POutput.flush();
+    POutput.close();
+  }
+  
+  int loadScore(){
+    String sLinedata[] = null;
+    String sScore;
+    sLinedata = Highscore;
+    if(sLinedata != null){
+      sScore = sLinedata[0];
+    }else{
+      sScore = "0";
+    }
+    return(Integer.parseInt(sScore));
+  }
+  
+  void dispHighScore(){
+    String sNowscore;
+    String sHighscore;
+    sHighscore = "　最高得点　: " + String.valueOf(iBeforeScore);
+    if(numberBurst >= numberBalloon){
+      sNowscore = "今回の得点　: " + String.valueOf(numberBalloon);
+    }else{
+      sNowscore = "今回の得点　: " + String.valueOf(numberBurst);
+    }
+    text(sNowscore,175,24);
+    text(sHighscore,175,72);
   }
   
   void changeState() {
@@ -118,5 +160,4 @@ class Balloon {
       isEnd = true;
     }
   }
-  
 }

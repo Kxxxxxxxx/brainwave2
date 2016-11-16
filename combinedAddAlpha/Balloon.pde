@@ -129,7 +129,11 @@ class Balloon {
   }
   
   void changeState() {
+<<<<<<< HEAD
     if(numberBurst >= 9){
+=======
+    if(numberBurst >= numberBalloon){
+>>>>>>> 5fe74f07aa449bf04766cec9b3d3e4084fdb33d1
        if(startCount){
            startCount = false;
            wait = new Wait(2); 
@@ -154,7 +158,7 @@ class Balloon {
   void moveToTitle() {
     if(startMoveToEnd) {
       startMoveToEnd = false;
-      wait = new Wait(4);
+      wait = new Wait(2);
     }
     if(wait.isEnd()){
       isEnd = true;

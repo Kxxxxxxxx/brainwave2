@@ -7,6 +7,7 @@ class Title {
   final float posx_bar = 150;
   final float [] posy_bar = {250, 300, 350} ;
   int gameNumber;
+  String bal;
   
   Title(){
     wario = loadImage("Wariot.jpg");
@@ -26,9 +27,11 @@ class Title {
     fill(150);
     rect(posx_bar, posy_bar[gameNumber - 1], 80,30);
     
+    bal = (game1 + "　最高得点　:　" + loadBalScore());
+    
     fill(0, 0, 255);
     text(game0,posx_bar,posy_bar[0]+30);
-    text(game1,posx_bar,posy_bar[1]+30);
+    text(bal,posx_bar,posy_bar[1]+30);
     text(game2,posx_bar,posy_bar[2]+30);
     
     
@@ -38,4 +41,17 @@ class Title {
     rect(0, 0, 120,30);
     popMatrix(); //座標軸の位置をスタックから取り出すし設定する ... この場合(0, 0)
   }
+}
+
+int loadBalScore(){
+  String Highscore[] = loadStrings("balloonhighscore.txt");
+  String sLinedata[] = null;
+  String sScore;
+  sLinedata = Highscore;
+  if(sLinedata != null){
+    sScore = sLinedata[0];
+  }else{
+    sScore = "0";
+  }
+  return(Integer.parseInt(sScore));
 }

@@ -1,4 +1,11 @@
+import ddf.minim.*;
+
 class Nonomura {
+  
+  
+  Minim minim;
+  AudioPlayer nonomurana;
+  
   PImage img;
   PImage photo,photo2,photo3; 
   float bx,by;

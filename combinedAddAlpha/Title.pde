@@ -10,11 +10,8 @@ class Title {
   final float posx_bar = 80;
   final float [] posy_bar = {240, 290, 340} ;
   int gameNumber;
-<<<<<<< HEAD
   String bal;
-=======
   Boolean isMusicStart;
->>>>>>> d39e0aac66669cff1955929adc790ac1c9a20dc4
   
   Title(){
     //minim = new Minim(this);
@@ -50,32 +47,19 @@ class Title {
     noStroke();
     rect(posx_bar, posy_bar[gameNumber - 1] + 35, 300,30);
     
-<<<<<<< HEAD
-    bal = (game1 + "　最高得点　:　" + loadBalScore());
+    bal = ( "　最高得点　:　" + loadBalScore());
     
-    fill(0, 0, 255);
-    text(game0,posx_bar,posy_bar[0]+30);
-    text(bal,posx_bar,posy_bar[1]+30);
-    text(game2,posx_bar,posy_bar[2]+30);
-    
-    
-    pushMatrix(); //(0, 0)を原点とする座標軸をスタックに格納
-    translate(120, 128); // 座標軸を 右に40px, 下に30px移動
-    rotate(-PI/13);
-    rect(0, 0, 120,30);
-    popMatrix(); //座標軸の位置をスタックから取り出すし設定する ... この場合(0, 0)
-=======
     fill(0, 255, 0);
     image(enduranceTitle,posx_bar,posy_bar[0]+30);
     image(balloonTitle,posx_bar,posy_bar[1]+30);
     image(nonomuraTitle,posx_bar,posy_bar[2]+30);
+    text(bal,300,340);
   
     //pushMatrix(); //(0, 0)を原点とする座標軸をスタックに格納
     //translate(120, 128); // 座標軸を 右に40px, 下に30px移動
     //rotate(-PI/13);
     //rect(0, 0, 120,30);
     //popMatrix(); //座標軸の位置をスタックから取り出すし設定する ... この場合(0, 0)
->>>>>>> d39e0aac66669cff1955929adc790ac1c9a20dc4
   }
 }
 

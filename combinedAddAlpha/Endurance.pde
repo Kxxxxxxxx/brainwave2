@@ -36,7 +36,7 @@ class Endurance {
     background(200);
     frameRate(30);
     count++;
-    String time2 = String.valueOf(30-count/30);
+    String time2 = String.valueOf(count/30);
     text(time2,370,460,50,50);
     if(!isOut){
       
@@ -51,10 +51,6 @@ class Endurance {
       drawFace();
       endDecision();
       
-         if(count >= 900){
-           pos_rect = new PVector(0,-300);
-           startMoveTohappyTitle();
-         }
         
     // Game Over
     } else {

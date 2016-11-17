@@ -53,7 +53,7 @@ class Title {
     image(enduranceTitle,posx_bar,posy_bar[0]+30);
     image(balloonTitle,posx_bar,posy_bar[1]+30);
     image(nonomuraTitle,posx_bar,posy_bar[2]+30);
-    text(bal,300,340);
+    //text(bal,300,340);
   
     //pushMatrix(); //(0, 0)を原点とする座標軸をスタックに格納
     //translate(120, 128); // 座標軸を 右に40px, 下に30px移動

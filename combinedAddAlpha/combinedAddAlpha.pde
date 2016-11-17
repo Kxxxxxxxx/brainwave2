@@ -9,7 +9,7 @@ OscP5 oscP5 = new OscP5(this, PORT);
 
 float buffer[] = {0,0,0,0};
 float max[] = {0,0,0,0};
-float alphaSizeArray[] = {0,0,0,0,0,0,0,0,0,0};
+float alphaSizeArray[] = {0,0,0,0,0,0,0,0,0,0,0,0,0};
 int pointer = 0;
 
 float a_size, alphaSize, alphaSizeSum;
@@ -70,6 +70,8 @@ void draw() {
   
   for(int i = 0; i<pointerSize; i++ ) {
     alphaSizeSum += alphaSizeArray[i];
+    
+ println(alphaSize);
   }
   
   
@@ -117,7 +119,7 @@ void draw() {
     
     case 3:  n1.draw();
             isEnd = n1.isEnd;
-            n1.swabPos = alphaSizeSum / pointerSize - 20;
+            n1.swabPos = alphaSizeSum / pointerSize ;
             println(n1.swabPos);
             break;
   }

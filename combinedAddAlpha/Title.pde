@@ -4,8 +4,8 @@ class Title {
   //Minim minim;
   PImage wario, sumo, madeinalpha5, background1;
   final String gameTitle = "メイド　イン　アルファ";
-  final String game0 = "ムキムキ耐久ゲーーーム！！";
-  final String game1 = "風船早割ゲーーーム！！";
+  final String game0 = "ENDURANCE SMILE";
+  final String game1 = "BALLOON GUNNER";
   final String game2 = "NONO CLEAN";
   final float posx_bar = 150;
   final float [] posy_bar = {250, 300, 350} ;

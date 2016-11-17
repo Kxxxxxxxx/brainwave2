@@ -13,12 +13,15 @@ float max[] = {0,0,0,0};
 float a_size, alphaSize;
 final float enduranceRate = 0.01;
 
+Boolean isNonoumraCry = true;
+
 Minim minim;
 AudioPlayer bgmTitle, bgmBalloon, bgmEndurance, bgmNonomura;
 
 // ここまでモニター用
 
 void setup() {
+  textSize(20);
   size(400, 500);
   minim = new Minim(this);
   bgmTitle = minim.loadFile("リコリコ.mp3");
@@ -69,6 +72,8 @@ void draw() {
         case 2: bgmEndurance.pause();
         case 3: bgmNonomura.pause();
     }
+    textAlign(LEFT);
+    textSize(20);
     t1 = new Title();
     state = 0;
     isEnd = false;
@@ -145,7 +150,7 @@ void keyPressed() {
            }
            if (t1.gameNumber == 3){
               changeWindowSize(640, 480);
-              bgmNonomura.loop();
+              bgmNonomura.loop();           
            }
            state = t1.gameNumber;
          }

@@ -8,8 +8,11 @@ class Balloon {
   final int sumBurst = 10000;
   float s, alphaSum;
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
+>>>>>>> parent of eb113d8... 元に戻れ
+=======
 >>>>>>> parent of eb113d8... 元に戻れ
   int count, state,input, numberBurst, iBeforeScore;
   PImage balloon, burst, img, glad, sad;
@@ -17,12 +20,18 @@ class Balloon {
   String Highscore[];
   PrintWriter POutput;
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> parent of eb113d8... 元に戻れ
 =======
   int state,input, numberBurst; 
   PImage balloon, burst, img, glad;
   Boolean startCount, startMoveToEnd, isEnd ,isMusicStart;;
 >>>>>>> a8ba2d397c0e280573cab9af7734f41317f365aa
+<<<<<<< HEAD
+>>>>>>> parent of eb113d8... 元に戻れ
+=======
 >>>>>>> parent of eb113d8... 元に戻れ
   Wait wait;
 

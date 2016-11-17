@@ -1,5 +1,6 @@
 class Nonomura {
 <<<<<<< HEAD
+<<<<<<< HEAD
   PImage img;
   PImage photo,photo2,photo3; 
   float bx,by;
@@ -14,6 +15,13 @@ class Nonomura {
   int mouseClickCount=0;
   int quiteNumber=0;
   int startWordCount,gameovercount=0,gameovercount2=0;
+=======
+  PImage Nonoimg,Nonoimg2,Nonoimg3,Nonoimg5,earimg,Samuraimg,macimg,trampimg;
+  float bx,by, swabPos;
+  int mouseClickCount=0;
+  int quiteNumber=0;
+  int startWordCount,gameovercount=0,gameovercount2=0;
+>>>>>>> parent of eb113d8... 元に戻れ
   int score=0,timeLimit=300,posResult=-100;
 >>>>>>> parent of eb113d8... 元に戻れ
 

@@ -1,14 +1,20 @@
 class Title {
 <<<<<<< HEAD
+<<<<<<< HEAD
   PImage wario, sumo, madeInAlpha;
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> parent of eb113d8... 元に戻れ
   PImage wario, sumo, madeinalpha6, background1,nonoclean1_1,endurance2,balloon1;
 =======
   //AudioPlayer bgmTitle;
   //Minim minim;
   PImage wario, sumo, madeinalpha5, background1;
 >>>>>>> a8ba2d397c0e280573cab9af7734f41317f365aa
+<<<<<<< HEAD
+>>>>>>> parent of eb113d8... 元に戻れ
+=======
 >>>>>>> parent of eb113d8... 元に戻れ
   final String gameTitle = "メイド　イン　アルファ";
   final String game0 = "ムキムキ耐久ゲーーーム！！";
@@ -20,6 +26,12 @@ class Title {
 <<<<<<< HEAD
   String bal;
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+=======
+  Boolean isMusicStart;
+>>>>>>> a8ba2d397c0e280573cab9af7734f41317f365aa
+>>>>>>> parent of eb113d8... 元に戻れ
 =======
 =======
   Boolean isMusicStart;
@@ -30,9 +42,12 @@ class Title {
     wario = loadImage("Wariot.jpg");
     sumo = loadImage("sumo.png");
 <<<<<<< HEAD
+<<<<<<< HEAD
     madeInAlpha = loadImage("madeInAlpha.png");
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> parent of eb113d8... 元に戻れ
     madeinalpha6 = loadImage("madeinalpha6.png");
     nonoclean1_1=loadImage("nonoclean1_1.png");
     endurance2=loadImage("endurance2.png");
@@ -40,6 +55,9 @@ class Title {
 =======
     madeinalpha5 = loadImage("madeinalpha5.png");
 >>>>>>> a8ba2d397c0e280573cab9af7734f41317f365aa
+<<<<<<< HEAD
+>>>>>>> parent of eb113d8... 元に戻れ
+=======
 >>>>>>> parent of eb113d8... 元に戻れ
     gameNumber = 1;
   }
@@ -63,7 +81,10 @@ class Title {
     text(bal,posx_bar,posy_bar[1]+30);
     text(game2,posx_bar,posy_bar[2]+30);
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> parent of eb113d8... 元に戻れ
 =======
     fill(0, 0, 0);
     image(endurance2,posx_bar,posy_bar[0],160,40);
@@ -73,6 +94,9 @@ class Title {
     //text(game2,posx_bar,posy_bar[2]+30);
     image(nonoclean1_1,posx_bar,posy_bar[2]+0,160,30);
 >>>>>>> 9312766e170d19f9b1f79efea779cc17394818d5
+<<<<<<< HEAD
+>>>>>>> parent of eb113d8... 元に戻れ
+=======
 >>>>>>> parent of eb113d8... 元に戻れ
     
     

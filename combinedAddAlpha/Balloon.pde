@@ -7,18 +7,14 @@ class Balloon {
   final int burstInput = 5;
   final int sumBurst = 10000;
   float s, alphaSum;
-  int count, state, input, numberBurst, iBeforeScore;
+  int count, state,input, numberBurst, iBeforeScore;
   PImage balloon, burst, img, glad, sad;
   Boolean startCount, startMoveToEnd, isEnd;
   String Highscore[];
   PrintWriter POutput;
-  int state,input, numberBurst; 
-  PImage balloon, burst, img, glad;
-  Boolean startCount, startMoveToEnd, isEnd ,isMusicStart;;
   Wait wait;
 
   Balloon() {
-    isMusicStart = true;
     balloon = loadImage("balloon.jpg");
     burst = loadImage("burst.png");
     glad = loadImage("glad.jpg");
@@ -128,12 +124,16 @@ class Balloon {
     }else{
       sNowscore = "今回の得点　: " + String.valueOf(numberBurst);
     }
-    text(sNowscore,150,24);
-    text(sHighscore,150,72);
+    text(sNowscore,175,24);
+    text(sHighscore,175,72);
   }
   
   void changeState() {
+<<<<<<< HEAD
+    if(numberBurst >= 9){
+=======
     if(numberBurst >= numberBalloon){
+>>>>>>> 5fe74f07aa449bf04766cec9b3d3e4084fdb33d1
        if(startCount){
            startCount = false;
            wait = new Wait(2); 

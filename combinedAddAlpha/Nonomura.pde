@@ -1,11 +1,12 @@
 class Nonomura {
-  PImage Nonoimg,Nonoimg2,Nonoimg3,Nonoimg5,earimg,Samuraimg,macimg,trampimg;
+  PImage img;
+  PImage photo,photo2,photo3; 
   float bx,by;
   int mouseClickCount=0;
   int quiteNumber=0;
   int startWordCount,gameovercount=0,gameovercount2=0;
   int swabPos;
-  int score=0,timeLimit=300,posResult=-100;
+  int score=0,s=300,ti=-100;
 
   String[] startWord = {"","3","2","1","GO!"};
  
@@ -17,8 +18,8 @@ class Nonomura {
   }
   
   void draw(){
-    Nonoimg3 = loadImage("nonomura3.jpg");
-    image(Nonoimg3, 0, 0, width, height);
+    img = loadImage("nonomura3.jpg");
+    image(img, 0, 0, width, height);
     if(mouseClickCount==0) startWindow();
     else goGame();
   }
@@ -77,15 +78,12 @@ void startWord(){
 void game() {
  
     background(255);
-    earimg = loadImage("ear1.jpg");
-    image(earimg, 160, 0, width/2, height);
+    photo3 = loadImage("ear1.jpg");
+    image(photo3, 160, 0, width/2, height);
   frameRate(10);
-  
-  
-  
   if(swabPos>=305){
-    Nonoimg3 = loadImage("nonomura3.jpg");
-    image(Nonoimg3, 420, 300, width/3, height*2/5);
+    photo = loadImage("nonomura3.jpg");
+    image(photo, 420, 300, width/3, height*2/5);
     fill(122);
     rect(swabPos, by, 310, 10);
     fill(#ff0000);
@@ -97,8 +95,8 @@ void game() {
     fill(122);
     //rect(swabPos+190, by, 120, 10);
   }else if(285<=swabPos&&swabPos<305){
-    Nonoimg3 = loadImage("nonomura3.jpg");
-    image(Nonoimg3, 420, 300, width/3, height*2/5);
+    photo = loadImage("nonomura3.jpg");
+    image(photo, 420, 300, width/3, height*2/5);
     fill(122);
     rect(305, by, swabPos-285, 10);
     fill(#ff0000);
@@ -110,8 +108,8 @@ void game() {
     fill(122);
     rect(swabPos+190, by, 110, 10);
   }else if(275<=swabPos&&swabPos<285){
-    Nonoimg2 = loadImage("nonomura2.jpg");
-    image(Nonoimg2, 420, 300, width/3, height*2/5);
+    photo = loadImage("nonomura2.jpg");
+    image(photo, 420, 300, width/3, height*2/5);
     fill(#ff0000);
     rect(305, by, swabPos-275, 10);
     fill(122);
@@ -124,8 +122,8 @@ void game() {
     score+=1;
     }
   }else if(125<=swabPos&&swabPos<275){
-    Nonoimg2 = loadImage("nonomura2.jpg");
-    image(Nonoimg2, 420, 300, width/3, height*2/5);
+    photo = loadImage("nonomura2.jpg");
+    image(photo, 420, 300, width/3, height*2/5);
     fill(122);
     rect(305, by, swabPos-125, 10);
     fill(#ff0000);
@@ -135,21 +133,21 @@ void game() {
     if(gameovercount==0&&gameovercount2==0){
     score+=1;
     }
-    if(170<=timeLimit&&timeLimit<=200){
-      Samuraimg = loadImage("samuragouti.jpg");
-    image(Samuraimg, 420, 0, width/3, height*2/5);
+    if(170<=s&&s<=200){
+      photo = loadImage("samuragouti.jpg");
+    image(photo, 420, 0, width/3, height*2/5);
     }
-    if(120<=timeLimit&&timeLimit<=150){
-      macimg = loadImage("mac.jpg");
-    image(macimg, 0, 300, width/3, height*2/5);
+    if(120<=s&&s<=150){
+      photo = loadImage("mac.jpg");
+    image(photo, 0, 300, width/3, height*2/5);
     }
-    if(70<=timeLimit&&timeLimit<=100){
-      trampimg = loadImage("tramp.jpg");
-    image(trampimg, 420, 0, width/3, height*2/5);
+    if(70<=s&&s<=100){
+      photo = loadImage("tramp.jpg");
+    image(photo, 420, 0, width/3, height*2/5);
     }
   }else if(115<=swabPos&&swabPos<125){
-    Nonoimg2 = loadImage("nonomura2.jpg");
-    image(Nonoimg2, 420, 300, width/3, height*2/5);
+    photo = loadImage("nonomura2.jpg");
+    image(photo, 420, 300, width/3, height*2/5);
     fill(#ff0000);
     rect(305, by, swabPos-115, 10);
     fill(122);
@@ -157,14 +155,12 @@ void game() {
     if(gameovercount==0&&gameovercount2==0){
     score+=1;
     }
-    if(timeLimit%2==0){
+    if(s%2==0){
       background(#ff0000);
     }
 
   }else{
-    if(timeLimit!=0){
     gameovercount=1;
-    }
   }
 }
 
@@ -174,11 +170,11 @@ void score(){
 }
 
 void timer(){
-  timeLimit-=0.1;
+  s-=0.1;
   textSize(30);
-  text("time:"+timeLimit/10, width*3/20, height*2/10);
-  if(timeLimit==0){
-    timeLimit+=0;
+  text("time:"+s/10, width*3/20, height*2/10);
+  if(s==0){
+    s+=0;
     gameovercount2=1;
     gameover2();
   }
@@ -186,18 +182,18 @@ void timer(){
 
 void finishgame(){
    if(mouseClickCount==1){
-    Nonoimg5 = loadImage("nonomura5.jpg");
-    image(Nonoimg5, 0, 0, width, height);
+    photo = loadImage("nonomura5.jpg");
+    image(photo, 0, 0, width, height);
     fill(#800080);
     textSize(70);
-    text("GAMEOVER!",width*1/2,posResult);
-    if(posResult<height*2/5){
-    posResult +=50;
+    text("GAMEOVER!",width*1/2,ti);
+    if(ti<height*2/5){
+    ti +=50;
     }else{
-    posResult +=0;
+    ti +=0;
     }   
    }else if(mouseClickCount>=2){
-     startMoveToTitle();
+     last();
    }        
 }
 
@@ -214,19 +210,19 @@ void areYouReady(){
 
 void gameover2(){
     if(mouseClickCount==1){
-    Nonoimg2 = loadImage("nonomura2.jpg");
-    image(Nonoimg2, 0, 0, width, height);
+    photo = loadImage("nonomura2.jpg");
+    image(photo, 0, 0, width, height);
     fill(#800080);
     textSize(70);
-    text("FINISH!",width*1/2,posResult);
-    if(posResult<height*2/5){
-    posResult +=50;
+    text("FINISH!",width*1/2,ti);
+    if(ti<height*2/5){
+    ti +=50;
     }else{
-    posResult +=0;
+    ti +=0;
     }   
     }
     else if(mouseClickCount>=2){
-     startMoveToTitle();
+     last();
     }
 }
   
@@ -242,15 +238,7 @@ void mouseClicked(){
   if(quiteNumber==1){
     exit();
   }
-}
 
-void startMoveToTitle() {
-    if(startCount){
-        startCount = false;
-        wait = new Wait(4); 
-      }
-      last();
-      isEnd = wait.isEnd();
-  }
-  
+ 
+}
 }

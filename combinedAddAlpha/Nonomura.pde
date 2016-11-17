@@ -1,15 +1,20 @@
 class Nonomura {
   PImage Nonoimg,Nonoimg2,Nonoimg3,Nonoimg5,earimg,Samuraimg,macimg,trampimg;
-  float bx,by;
+  float bx,by, swabPos;
   int mouseClickCount=0;
   int quiteNumber=0;
   int startWordCount,gameovercount=0,gameovercount2=0;
-  int swabPos;
   int score=0,timeLimit=300,posResult=-100;
 
   String[] startWord = {"","3","2","1","GO!"};
+  Boolean isMusicStart, startCount, isEnd;
+  
+  Wait wait;
  
   Nonomura() {
+    startCount = true;
+    isMusicStart = true;
+    isEnd = false;
      strokeWeight(5);
      bx=0;
      by=height*2/4;
@@ -80,6 +85,9 @@ void game() {
     earimg = loadImage("ear1.jpg");
     image(earimg, 160, 0, width/2, height);
   frameRate(10);
+  
+  
+  
   if(swabPos>=305){
     Nonoimg3 = loadImage("nonomura3.jpg");
     image(Nonoimg3, 420, 300, width/3, height*2/5);
@@ -194,7 +202,7 @@ void finishgame(){
     posResult +=0;
     }   
    }else if(mouseClickCount>=2){
-     last();
+     startMoveToTitle();
    }        
 }
 
@@ -223,7 +231,7 @@ void gameover2(){
     }   
     }
     else if(mouseClickCount>=2){
-     last();
+     startMoveToTitle();
     }
 }
   
@@ -239,7 +247,15 @@ void mouseClicked(){
   if(quiteNumber==1){
     exit();
   }
-
- 
 }
+
+void startMoveToTitle() {
+    if(startCount){
+        startCount = false;
+        wait = new Wait(4); 
+      }
+      last();
+      isEnd = wait.isEnd();
+  }
+  
 }

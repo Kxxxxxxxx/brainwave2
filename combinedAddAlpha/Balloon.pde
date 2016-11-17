@@ -9,10 +9,11 @@ class Balloon {
   float s, alphaSum;
   int state,input, numberBurst; 
   PImage balloon, burst, img, glad;
-  Boolean startCount, startMoveToEnd, isEnd;
+  Boolean startCount, startMoveToEnd, isEnd ,isMusicStart;;
   Wait wait;
 
   Balloon() {
+    isMusicStart = true;
     balloon = loadImage("balloon.jpg");
     burst = loadImage("burst.png");
     glad = loadImage("glad.jpg");

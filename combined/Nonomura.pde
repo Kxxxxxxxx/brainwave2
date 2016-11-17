@@ -7,13 +7,15 @@ class Nonomura {
   int startWordCount,gameovercount=0,gameovercount2=0;
   int swabPos;
   int score=0,s=300,ti=-100;
+  
+  Boolean isMusicStart = true;
 
   String[] startWord = {"","3","2","1","GO!"};
   
-  
-  
-  
   Nonomura() {
+     minim = new Minim(this);
+     nonomurana = minim.loadFile("nonomurana.wav",2048);
+     
      strokeWeight(5);
      bx=0;
      by=height*2/4;
@@ -163,7 +165,9 @@ void game() {
     }
 
   }else{
+    if(s!=0){
     gameovercount=1;
+    }
   }
 }
 
@@ -185,6 +189,11 @@ void timer(){
 
 void finishgame(){
    if(mouseClickCount==1){
+     if(isMusicStart){
+       isMusicStart = false;
+       nonomurana.play();
+     }
+    
     photo = loadImage("nonomura5.jpg");
     image(photo, 0, 0, width, height);
     fill(#800080);
@@ -196,6 +205,7 @@ void finishgame(){
     ti +=0;
     }   
    }else if(mouseClickCount>=2){
+     
      last();
    }        
 }
@@ -233,6 +243,13 @@ void last(){
     background(255);
     textSize(50);
     text("score:"+score/3,width*1/2,height*1/2);
+}
+
+void stop() {
+ 
+  nonomurana.close();
+  minim.stop();
+
 }
 
 void mouseClicked(){

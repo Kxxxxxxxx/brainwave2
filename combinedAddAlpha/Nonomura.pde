@@ -1,20 +1,15 @@
 class Nonomura {
   PImage Nonoimg,Nonoimg2,Nonoimg3,Nonoimg5,earimg,Samuraimg,macimg,trampimg;
-  float bx,by, swabPos;
+  float bx,by;
   int mouseClickCount=0;
   int quiteNumber=0;
   int startWordCount,gameovercount=0,gameovercount2=0;
+  int swabPos;
   int score=0,timeLimit=300,posResult=-100;
 
   String[] startWord = {"","3","2","1","GO!"};
-  Boolean isMusicStart, startCount, isEnd;
-  
-  Wait wait;
  
   Nonomura() {
-    startCount = true;
-    isMusicStart = true;
-    isEnd = false;
      strokeWeight(5);
      bx=0;
      by=height*2/4;

@@ -1,0 +1,55 @@
+diff a/combinedAddAlpha/Title.pde b/combinedAddAlpha/Title.pde	(rejected hunks)
+@@ -2,26 +3,51 @@
++
+ class Title {
++<<<<<<< HEAD
+   PImage wario, sumo, madeinalpha6, background1,nonoclean1_1,endurance2,balloon1;
++=======
++  //AudioPlayer bgmTitle;
++  //Minim minim;
++  PImage wario, sumo, madeinalpha5, background1;
++>>>>>>> a8ba2d397c0e280573cab9af7734f41317f365aa
+   final String gameTitle = "メイド　イン　アルファ";
+-  final String game0 = "ムキムキ耐久ゲーーーム！！";
+-  final String game1 = "風船早割ゲーーーム！！";
++  final String game0 = "ENDURANCE SMILE";
++  final String game1 = "BALLOON GUNNER";
+   final String game2 = "NONO CLEAN";
+   final float posx_bar = 120;
+   final float [] posy_bar = {250, 300, 350} ;
+   int gameNumber;
++<<<<<<< HEAD
+   String bal;
++=======
++  Boolean isMusicStart;
++>>>>>>> a8ba2d397c0e280573cab9af7734f41317f365aa
+   
+   Title(){
++    //minim = new Minim(this);
++    //bgmTitle = minim.loadFile("Little_March.mp3");
++    
++    isMusicStart = true;
+     wario = loadImage("Wariot.jpg");
+     sumo = loadImage("sumo.png");
++<<<<<<< HEAD
+     madeinalpha6 = loadImage("madeinalpha6.png");
+     nonoclean1_1=loadImage("nonoclean1_1.png");
+     endurance2=loadImage("endurance2.png");
+     balloon1=loadImage("balloon1.png");
++=======
++    madeinalpha5 = loadImage("madeinalpha5.png");
++>>>>>>> a8ba2d397c0e280573cab9af7734f41317f365aa
+     gameNumber = 1;
+   }
+   
+   void draw(){
++    
++    //if(isMusicStart){
++    //  isMusicStart = false;
++    //  bgmTitle.play();
++    //}
+     background(200);
++    
+     background1 = loadImage("background1.jpg");
+     image(background1, 0, 0, width, height);
+     //text(gameTitle,150,200);

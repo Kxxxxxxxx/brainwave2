@@ -7,14 +7,21 @@ class Balloon {
   final int burstInput = 5;
   final int sumBurst = 10000;
   float s, alphaSum;
+<<<<<<< HEAD
   int count, state,input, numberBurst, iBeforeScore;
   PImage balloon, burst, img, glad, sad;
   Boolean startCount, startMoveToEnd, isEnd;
   String Highscore[];
   PrintWriter POutput;
+=======
+  int state,input, numberBurst; 
+  PImage balloon, burst, img, glad;
+  Boolean startCount, startMoveToEnd, isEnd ,isMusicStart;;
+>>>>>>> d39e0aac66669cff1955929adc790ac1c9a20dc4
   Wait wait;
 
   Balloon() {
+    isMusicStart = true;
     balloon = loadImage("balloon.jpg");
     burst = loadImage("burst.png");
     glad = loadImage("glad.jpg");

@@ -13,8 +13,10 @@ class Endurance {
   final float height_rect = imageHeight / 2.5;             // height of bar
 
   float heightMinus, counter, level, power, heightLeft;
+  Boolean isMusicStart;
   
   Endurance (int _level){
+    isMusicStart = true;
     img_smile = loadImage("smile.png");     //load image files
     img_cry = loadImage("cry.png");
     img_endure = loadImage("endure.png");
@@ -60,19 +62,13 @@ class Endurance {
     }   
   }
   
-  
-  
-  
-  
-  
   void modifyLevel(){
-    counter += 1;
-      
+    counter += 1;      
       // level up as time passes
-      if (counter% 181 == 0){
+     if (counter% 181 == 0){
         level += 0.2;
         counter = 1;
-      }
+     }
   }
   
   void modifyObstaclePosition(){

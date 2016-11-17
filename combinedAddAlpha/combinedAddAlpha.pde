@@ -9,9 +9,12 @@ OscP5 oscP5 = new OscP5(this, PORT);
 
 float buffer[] = {0,0,0,0};
 float max[] = {0,0,0,0};
+float alphaSizeArray[] = {0,0,0,0,0,0,0,0,0,0};
+int pointer = 0;
 
-float a_size, alphaSize;
+float a_size, alphaSize, alphaSizeSum;
 final float enduranceRate = 0.01;
+final int pointerSize = alphaSizeArray.length;
 
 Boolean isNonoumraCry = true;
 
@@ -21,7 +24,6 @@ AudioPlayer bgmTitle, bgmBalloon, bgmEndurance, bgmNonomura;
 // ここまでモニター用
 
 void setup() {
-  textSize(20);
   size(400, 500);
   minim = new Minim(this);
   bgmTitle = minim.loadFile("リコリコ.mp3");
@@ -52,6 +54,7 @@ Boolean isEnd;
 //60Hz /s
 void draw() {
   alphaSize = 0;
+  alphaSizeSum = 0;
   
     for(int ch = 0; ch < N_CHANNELS; ch++){
   }
@@ -60,7 +63,16 @@ void draw() {
   }
   
   alphaSize = alphaSize / 4;
-  alphaSize = random(100, 200); 
+  
+  //alphaSize = random(100, 200); 
+  pointer = (pointer + 1) % pointerSize;
+  alphaSizeArray[pointer] = alphaSize;
+  
+  for(int i = 0; i<pointerSize; i++ ) {
+    alphaSizeSum += alphaSizeArray[i];
+  }
+  
+  
   
   //ここまでモニター
   
@@ -72,8 +84,6 @@ void draw() {
         case 2: bgmBalloon.pause();
         case 3: bgmNonomura.pause();
     }
-    textAlign(LEFT);
-    textSize(20);
     t1 = new Title();
     state = 0;
     isEnd = false;
@@ -107,12 +117,10 @@ void draw() {
     
     case 3:  n1.draw();
             isEnd = n1.isEnd;
-            n1.swabPos = alphaSize * 1.5;
+            n1.swabPos = alphaSizeSum / pointerSize;
             println(n1.swabPos);
             break;
- 
   }
-  
 }
 
 

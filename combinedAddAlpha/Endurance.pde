@@ -52,19 +52,13 @@ class Endurance {
     }   
   }
   
-  
-  
-  
-  
-  
   void modifyLevel(){
-    counter += 1;
-      
+    counter += 1;      
       // level up as time passes
-      if (counter% 181 == 0){
+     if (counter% 181 == 0){
         level += 0.2;
         counter = 1;
-      }
+     }
   }
   
   void modifyObstaclePosition(){

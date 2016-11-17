@@ -2,13 +2,13 @@
 class Title {
   //AudioPlayer bgmTitle;
   //Minim minim;
-  PImage wario, sumo, madeinalpha5, background1;
+  PImage wario, sumo, madeinalpha5, background1,enduranceTitle, balloonTitle, nonomuraTitle;
   final String gameTitle = "メイド　イン　アルファ";
   final String game0 = "ENDURANCE SMILE";
   final String game1 = "BALLOON GUNNER";
   final String game2 = "NONO CLEAN";
-  final float posx_bar = 150;
-  final float [] posy_bar = {250, 300, 350} ;
+  final float posx_bar = 80;
+  final float [] posy_bar = {240, 290, 340} ;
   int gameNumber;
   Boolean isMusicStart;
   
@@ -20,6 +20,9 @@ class Title {
     wario = loadImage("Wariot.jpg");
     sumo = loadImage("sumo.png");
     madeinalpha5 = loadImage("madeinalpha5.png");
+    enduranceTitle = loadImage("enduranceTitle.png");
+    balloonTitle = loadImage("balloonTitle.png");
+    nonomuraTitle = loadImage("nonomuraTitle.png");
     gameNumber = 1;
   }
   
@@ -40,18 +43,18 @@ class Title {
     noTint();
     
     fill(255);
-    rect(posx_bar, posy_bar[gameNumber - 1], 160,30);
+    noStroke();
+    rect(posx_bar, posy_bar[gameNumber - 1] + 35, 300,30);
     
     fill(0, 255, 0);
-    text(game0,posx_bar,posy_bar[0]+30);
-    text(game1,posx_bar,posy_bar[1]+30);
-    text(game2,posx_bar,posy_bar[2]+30);
-    
-    
-    pushMatrix(); //(0, 0)を原点とする座標軸をスタックに格納
-    translate(120, 128); // 座標軸を 右に40px, 下に30px移動
-    rotate(-PI/13);
+    image(enduranceTitle,posx_bar,posy_bar[0]+30);
+    image(balloonTitle,posx_bar,posy_bar[1]+30);
+    image(nonomuraTitle,posx_bar,posy_bar[2]+30);
+  
+    //pushMatrix(); //(0, 0)を原点とする座標軸をスタックに格納
+    //translate(120, 128); // 座標軸を 右に40px, 下に30px移動
+    //rotate(-PI/13);
     //rect(0, 0, 120,30);
-    popMatrix(); //座標軸の位置をスタックから取り出すし設定する ... この場合(0, 0)
+    //popMatrix(); //座標軸の位置をスタックから取り出すし設定する ... この場合(0, 0)
   }
 }

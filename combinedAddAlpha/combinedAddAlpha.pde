@@ -117,12 +117,11 @@ void draw() {
     
     case 3:  n1.draw();
             isEnd = n1.isEnd;
-            n1.swabPos = alphaSizeSum / pointerSize;
+            n1.swabPos = alphaSizeSum / pointerSize - 20;
             println(n1.swabPos);
             break;
   }
 }
-
 
 void changeWindowSize(int w, int h) {
   surface.setSize(w, h);

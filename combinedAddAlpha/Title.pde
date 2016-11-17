@@ -7,7 +7,7 @@ class Title {
   final String game0 = "ENDURANCE SMILE";
   final String game1 = "BALLOON GUNNER";
   final String game2 = "NONO CLEAN";
-  final float posx_bar = 80;
+  final float posx_bar = 50;
   final float [] posy_bar = {240, 290, 340} ;
   int gameNumber;
   Boolean isMusicStart;

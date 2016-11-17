@@ -1,5 +1,7 @@
 import oscP5.*;
 import netP5.*;
+import ddf.minim.*;
+
 final int N_CHANNELS = 4;
 final int BUFFER_SIZE = 220;
 final int PORT = 5000;
@@ -11,10 +13,22 @@ float max[] = {0,0,0,0};
 float a_size, alphaSize;
 final float enduranceRate = 0.01;
 
+Boolean isNonoumraCry = true;
+
+Minim minim;
+AudioPlayer bgmTitle, bgmBalloon, bgmEndurance, bgmNonomura;
+
 // ここまでモニター用
 
 void setup() {
+  textSize(20);
   size(400, 500);
+  minim = new Minim(this);
+  bgmTitle = minim.loadFile("リコリコ.mp3");
+  bgmEndurance = minim.loadFile("Endurance.mp3");
+  bgmBalloon = minim.loadFile("Balloon.mp3");
+  bgmNonomura = minim.loadFile("Green_Pop.mp3");
+
 
   //ここまでモニター
   
@@ -46,20 +60,34 @@ void draw() {
   }
   
   alphaSize = alphaSize / 4;
-
+  alphaSize = random(100, 200); 
   
   //ここまでモニター
   
  
   if(isEnd){
+    changeWindowSize(400, 500);
+    switch(state) {
+        case 1: bgmEndurance.pause();
+        case 2: bgmBalloon.pause();
+        case 3: bgmNonomura.pause();
+    }
+    textAlign(LEFT);
+    textSize(20);
+    t1 = new Title();
     state = 0;
     isEnd = false;
     e1 = new Endurance(4);
     b1 = new Balloon();
+    n1 = new Nonomura();
   }
   
   switch(state){
     case 0: t1.draw();
+                   if(t1.isMusicStart){
+                     t1.isMusicStart = false;
+                    bgmTitle.loop();
+                     }
     break;
     
     case 1: 
@@ -78,6 +106,9 @@ void draw() {
             break;
     
     case 3:  n1.draw();
+            isEnd = n1.isEnd;
+            n1.swabPos = alphaSize * 1.5;
+            println(n1.swabPos);
             break;
  
   }
@@ -110,8 +141,16 @@ void keyPressed() {
            t1.gameNumber -= 1;
          }
        } else if (keyCode == ENTER) {
+           bgmTitle.pause();
+           if (t1.gameNumber == 1){
+              bgmEndurance.loop();
+           }
+           if (t1.gameNumber == 2){
+              bgmBalloon.loop();
+           }
            if (t1.gameNumber == 3){
               changeWindowSize(640, 480);
+              bgmNonomura.loop();           
            }
            state = t1.gameNumber;
          }

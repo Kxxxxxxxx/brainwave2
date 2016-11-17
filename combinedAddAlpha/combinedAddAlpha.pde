@@ -25,8 +25,8 @@ void setup() {
   size(400, 500);
   minim = new Minim(this);
   bgmTitle = minim.loadFile("リコリコ.mp3");
-  bgmBalloon = minim.loadFile("あんぽんたんなテーマ.mp3");
-  bgmEndurance = minim.loadFile("なんでしょう？.mp3");
+  bgmEndurance = minim.loadFile("Endurance.mp3");
+  bgmBalloon = minim.loadFile("Balloon.mp3");
   bgmNonomura = minim.loadFile("Green_Pop.mp3");
 
 
@@ -68,8 +68,8 @@ void draw() {
   if(isEnd){
     changeWindowSize(400, 500);
     switch(state) {
-        case 1: bgmBalloon.pause();
-        case 2: bgmEndurance.pause();
+        case 1: bgmEndurance.pause();
+        case 2: bgmBalloon.pause();
         case 3: bgmNonomura.pause();
     }
     textAlign(LEFT);
@@ -143,10 +143,10 @@ void keyPressed() {
        } else if (keyCode == ENTER) {
            bgmTitle.pause();
            if (t1.gameNumber == 1){
-              bgmBalloon.loop();
+              bgmEndurance.loop();
            }
            if (t1.gameNumber == 2){
-              bgmEndurance.loop();
+              bgmBalloon.loop();
            }
            if (t1.gameNumber == 3){
               changeWindowSize(640, 480);
